@@ -1,2 +1,2 @@
-# mySQL-Pyhton
-programas creados en pyhton , base de datos y consultas con mySQL.
+# mySQL
+consultas y bases de datos creadas en mySQL
