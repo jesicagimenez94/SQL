@@ -3,7 +3,7 @@
 -- crear la base de datos tienda cuyas entidades sean fabricantes(codigo, nombre) y articulos(codigo,nombre,precio,fabricante).
 
 CREATE DATABASE tienda;
-
+use tienda;
 CREATE TABLE fabricantes
 (codigo int not null, nombre varchar(100),primary key(codigo));
 CREATE TABLE articulos
