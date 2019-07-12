@@ -24,5 +24,42 @@ SELECT a.nombre,a.apellido,d.hora FROM alumnos as a, datos as d
 WHERE a.id_alumno=d.id_datos
 AND d.hora<230045;
 
+DELIMITER $$
+CREATE PROCEDURE buscarAl ( in alumno int )
+BEGIN
+SELECT * FROM alumnos WHERE id_alumno = alumno;
+END $$
+DELIMITER ;
 
+
+DELIMITER $$
+CREATE PROCEDURE buscarA()
+BEGIN
+SELECT * FROM alumnos;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE eliminarAlumno(in alumno int)
+BEGIN
+SELECT * FROM alumnos WHERE id_alumno=alumno;
+END $$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE PROCEDURE agregarAlumno(@id int,@nombre varchar(30),@apellido varchar(30))
+AS
+IF NOT EXISTS (SELECT * FROM alumnos WHERE id_alumno=@id)
+  BEGIN
+     INSERT INTO alumnos
+     VALUES(@nombre,@apellido)
+  END
+ELSE
+  BEGIN
+    UPDATE alumnos
+    SET nombre=@nombre,apellido=@apellido
+    WHERE id_alumno=@id
+  END
+DELIMITER ;
 
