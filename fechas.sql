@@ -42,7 +42,7 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE eliminarAlumno(in alumno int)
 BEGIN
-SELECT * FROM alumnos WHERE id_alumno=alumno;
+DELET FROM alumnos WHERE id_alumno=alumno;
 END $$
 DELIMITER ;
 
